@@ -15,7 +15,10 @@ Including another URLconf
 """
 from django.conf.urls import url
 from django.contrib import admin
+from web import views
 
 urlpatterns = [
+    url(r'^$', views.index, name='index'),
+    url(r'^agregar-entidad/$', views.add_entidad, name='add_entidad'),
     url(r'^admin/', admin.site.urls),
 ]

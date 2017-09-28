@@ -1,0 +1,12 @@
+{% extends "web/base.html" %}
+{% load bootstrap %}
+{% block body_block %}
+<h3>Agregar Entidad</h3>
+<div>
+    <form id="entidad_form" method="post" action="{% url 'add_entidad' %}">
+        {% csrf_token %}
+        {{ form|bootstrap }}
+        <input class="btn btn-primary" type="submit" name="submit" value="Agregar Entidad" />
+    </form>
+</div>
+{% endblock body_block %}

@@ -2,6 +2,24 @@
 from __future__ import unicode_literals
 
 from django.shortcuts import render
+from web.forms import EntidadForm
+
 
 def index(request):
-    return render(request, )
+    context_dict = {}
+    return render(request, 'web/index.html', context_dict)
+
+
+def add_entidad(request):
+    form = EntidadForm()
+
+    if request.method == 'POST':
+        form = EntidadForm(request.POST)
+
+        if form.is_valid():
+            form.save(commit=True)
+            return index(request)
+        else:
+            print(form.errors)
+
+    return render(request, 'web/add_entidad.html', {'form': form})
