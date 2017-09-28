@@ -2,7 +2,7 @@
 from __future__ import unicode_literals
 
 from django.shortcuts import render
-from web.forms import EntidadForm
+from web.forms import EntidadForm, EnlaceForm
 
 
 def index(request):
@@ -23,3 +23,18 @@ def add_entidad(request):
             print(form.errors)
 
     return render(request, 'web/add_entidad.html', {'form': form})
+
+
+def add_enlace(request):
+    form = EnlaceForm()
+
+    if request.method == 'POST':
+        form = EnlaceForm(request.POST)
+
+        if form.is_valid():
+            form.save(commit=True)
+            return index(request)
+        else:
+            print(form.errors)
+
+    return render(request, 'web/add_enlace.html', {'form': form})

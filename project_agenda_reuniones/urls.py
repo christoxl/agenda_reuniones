@@ -20,5 +20,6 @@ from web import views
 urlpatterns = [
     url(r'^$', views.index, name='index'),
     url(r'^agregar-entidad/$', views.add_entidad, name='add_entidad'),
+    url(r'^agregar-enlace/$', views.add_enlace, name='add_enlace'),
     url(r'^admin/', admin.site.urls),
 ]

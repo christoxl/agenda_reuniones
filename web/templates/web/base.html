@@ -20,12 +20,12 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href="#">Agenda</a>
+                <a class="navbar-brand" href="{% url 'index' %}">Agenda</a>
             </div>
             <div id="navbar" class="navbar-collapse collapse">
                 <ul class="nav navbar-nav navbar-right">
-                    <li><a href="#">Entidades</a></li>
-                    <li><a href="#">Enlaces</a></li>
+                    <li><a href="{% url 'add_entidad' %}">Entidades</a></li>
+                    <li><a href="{% url 'add_enlace' %}">Enlaces</a></li>
                     <li><a href="#">Sesiones</a></li>
                 </ul>
             </div>
@@ -36,8 +36,8 @@
             <div class="col-sm-3 col-md-2 sidebar">
                 <ul class="nav nav-sidebar">
                     <li>
-                        <a href="">Entidades</a>
-                        <a href="">Enlaces</a>
+                        <a href="{% url 'add_entidad' %}">Entidades</a>
+                        <a href="{% url 'add_enlace' %}">Enlaces</a>
                         <a href="">Sesiones</a>
                     </li>
                 </ul>
