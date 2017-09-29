@@ -6,8 +6,8 @@
 </div>
 <div class="row">
     <ul class="list-group">
-        {% for sesion in sesiones %}
-        <a href="#" type="button" class="list-group-item">{{ sesion }}</a>
+        {% for sesion in object_list %}
+        <a href="{% url 'update_sesion' sesion.pk %}" type="button" class="list-group-item">{{ sesion }}</a>
         {% endfor %}
     </ul>
 </div>

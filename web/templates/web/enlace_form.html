@@ -1,12 +1,12 @@
 {% extends "web/base.html" %}
 {% load bootstrap %}
 {% block body_block %}
-<h3>Agregar Sesión</h3>
+<h3>Enlace</h3>
 <div class="col-md-6">
-    <form id="sesion_form" method="post" action="{% url 'add_sesion' %}">
+    <form id="enlace_form" method="post">
         {% csrf_token %}
         {{ form|bootstrap }}
-        <input class="btn btn-primary" type="submit" name="submit" value="Agregar Sesión" />
+        <input class="btn btn-primary" type="submit" name="submit" value="Enviar" />
     </form>
 </div>
 {% endblock body_block %}

@@ -19,11 +19,18 @@ from web import views
 
 urlpatterns = [
     url(r'^$', views.index, name='index'),
-    url(r'^entidad$', views.entidad, name='entidad'),
-    url(r'^enlace$', views.enlace, name='enlace'),
-    url(r'^sesion$', views.sesion, name='sesion'),
-    url(r'^entidad/agregar/$', views.add_entidad, name='add_entidad'),
-    url(r'^enlace/agregar/$', views.add_enlace, name='add_enlace'),
-    url(r'^sesion/agregar/$', views.add_sesion, name='add_sesion'),
+
+    url(r'^entidad$', views.EntidadList.as_view(), name='entidad'),
+    url(r'^entidad/agregar/$', views.EntidadCreate.as_view(), name='add_entidad'),
+    url(r'^entidad/editar/(?P<slug>[\w\-]+)/$', views.EntidadUpdate.as_view(), name='update_entidad'),
+
+    url(r'^enlace$', views.EnlaceList.as_view(), name='enlace'),
+    url(r'^enlace/agregar/$', views.EnlaceCreate.as_view(), name='add_enlace'),
+    url(r'^enlace/editar/(?P<pk>\d+)/$', views.EnlaceUpdate.as_view(), name='update_enlace'),
+
+    url(r'^sesion$', views.SesionList.as_view(), name='sesion'),
+    url(r'^sesion/agregar/$', views.SesionCreate.as_view(), name='add_sesion'),
+    url(r'^sesion/editar/(?P<pk>\d+)/$', views.SesionUpdate.as_view(), name='update_sesion'),
+
     url(r'^admin/', admin.site.urls),
 ]

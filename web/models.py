@@ -6,8 +6,8 @@ from django.template.defaultfilters import slugify
 
 
 class Entidad(models.Model):
-    nombre = models.CharField(max_length=200)
-    slug = models.SlugField()
+    nombre = models.CharField(max_length=200, unique=True)
+    slug = models.SlugField(unique=True)
 
     def save(self, *args, **kwargs):
         self.slug = slugify(self.nombre)
@@ -25,17 +25,20 @@ class Enlace(models.Model):
     apellido_pat = models.CharField(max_length=200)
     apellido_mat = models.CharField(max_length=200)
     cargo = models.CharField(max_length=200)
-    slug = models.SlugField()
 
     def save(self, *args, **kwargs):
         self.slug = slugify(self.nombre)
         super(Enlace, self).save(*args, **kwargs)
 
     def __str__(self):
-        return (self.nombre + self.apellido_pat)
+        return ((' ').join([self.nombre,
+                            self.apellido_pat,
+                            self.apellido_mat]))
 
     def __unicode__(self):
-        return (self.nombre + self.apellido_pat)
+        return ((' ').join([self.nombre,
+                            self.apellido_pat,
+                            self.apellido_mat]))
 
 
 class Sesion(models.Model):
@@ -45,7 +48,6 @@ class Sesion(models.Model):
     fecha_prox = models.DateTimeField()
     entidad = models.ForeignKey(Entidad)
     enlaces = models.ManyToManyField(Enlace)
-    slug = models.SlugField()
 
     def save(self, *args, **kwargs):
         self.slug = slugify(self.nombre)

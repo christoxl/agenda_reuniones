@@ -6,8 +6,8 @@
 </div>
 <div class="row">
     <ul class="list-group">
-        {% for enlace in enlaces %}
-        <a href="#" type="button" class="list-group-item">{{ enlace }}</a>
+        {% for enlace in object_list %}
+        <a href="{% url 'update_enlace' enlace.pk %}" type="button" class="list-group-item">{{ enlace }}</a>
         {% endfor %}
     </ul>
 </div>

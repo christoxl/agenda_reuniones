@@ -1,0 +1,15 @@
+{% extends "web/base.html" %}
+{% load bootstrap %}
+{% block body_block %}
+<h3>Sesión</h3>
+<div class="col-md-6">
+    <form id="sesion_form" method="post">
+        {% csrf_token %}
+        {{ form|bootstrap }}
+        <input class="btn btn-primary" type="submit" name="submit" value="Enviar" />
+        {% if pk %}
+            Test
+        {% endif %}
+    </form>
+</div>
+{% endblock body_block %}

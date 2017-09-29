@@ -6,8 +6,8 @@
 </div>
 <div class="row">
     <ul class="list-group">
-        {% for entidad in entidades %}
-        <a href="#" type="button" class="list-group-item">{{ entidad }}</a>
+        {% for entidad in object_list %}
+        <a href="{% url 'update_entidad' entidad.slug %}" type="button" class="list-group-item">{{ entidad }}</a>
         {% endfor %}
     </ul>
 </div>

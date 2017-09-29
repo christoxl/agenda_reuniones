@@ -1,9 +1,12 @@
 # -*- coding: utf-8 -*-
 from __future__ import unicode_literals
 
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from web.models import Entidad, Enlace, Sesion
-from web.forms import EntidadForm, EnlaceForm, SesionForm
+from web.forms import SesionForm
+from django.views.generic import ListView
+from django.views.generic.edit import CreateView, UpdateView
+from django.core.urlresolvers import reverse_lazy
 
 
 def index(request):
@@ -11,67 +14,48 @@ def index(request):
     return render(request, 'web/index.html', context_dict)
 
 
-def entidad(request):
-    entidad_list = Entidad.objects.all()
-    context_dict = {'entidades': entidad_list}
-
-    return render(request, 'web/entidad.html', context_dict)
+class EntidadList(ListView):
+    model = Entidad
 
 
-def enlace(request):
-    enlace_list = Enlace.objects.all()
-    context_dict = {'enlaces': enlace_list}
-
-    return render(request, 'web/enlace.html', context_dict)
-
-
-def sesion(request):
-    sesion_list = Sesion.objects.all()
-    context_dict = {'sesiones': sesion_list}
-
-    return render(request, 'web/sesion.html', context_dict)
+class EntidadCreate(CreateView):
+    model = Entidad
+    success_url = reverse_lazy('entidad')
+    fields = ['nombre']
 
 
-def add_entidad(request):
-    form = EntidadForm()
-
-    if request.method == 'POST':
-        form = EntidadForm(request.POST)
-
-        if form.is_valid():
-            form.save(commit=True)
-            return entidad(request)
-        else:
-            print(form.errors)
-
-    return render(request, 'web/add_entidad.html', {'form': form})
+class EntidadUpdate(UpdateView):
+    model = Entidad
+    success_url = reverse_lazy('entidad')
+    fields = ['nombre']
 
 
-def add_enlace(request):
-    form = EnlaceForm()
-
-    if request.method == 'POST':
-        form = EnlaceForm(request.POST)
-
-        if form.is_valid():
-            form.save(commit=True)
-            return enlace(request)
-        else:
-            print(form.errors)
-
-    return render(request, 'web/add_enlace.html', {'form': form})
+class EnlaceList(ListView):
+    model = Enlace
 
 
-def add_sesion(request):
-    form = SesionForm()
+class EnlaceCreate(CreateView):
+    model = Enlace
+    success_url = reverse_lazy('enlace')
+    fields = ['nombre', 'apellido_pat', 'apellido_mat', 'cargo']
 
-    if request.method == 'POST':
-        form = SesionForm(request.POST)
 
-        if form.is_valid():
-            form.save(commit=True)
-            return sesion(request)
-        else:
-            print(form.errors)
+class EnlaceUpdate(UpdateView):
+    model = Enlace
+    success_url = reverse_lazy('enlace')
+    fields = ['nombre', 'apellido_pat', 'apellido_mat', 'cargo']
 
-    return render(request, 'web/add_sesion.html', {'form': form})
+
+class SesionList(ListView):
+    model = Sesion
+
+
+class SesionCreate(CreateView):
+    form_class = SesionForm
+    model = Sesion
+    success_url = reverse_lazy('sesion')
+
+class SesionUpdate(UpdateView):
+    form_class = SesionForm
+    model = Sesion
+    success_url = reverse_lazy('sesion')
