@@ -121,3 +121,6 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 STATIC_ROOT = os.path.join(BASE_DIR, 'static')
+
+# Added for Date Input Formats
+DATE_INPUT_FORMATS = ['%d-%m-%Y %H:%M:%S']

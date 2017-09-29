@@ -1,3 +1,4 @@
+from django.conf import settings
 from django import forms
 from web.models import Entidad, Enlace, Sesion
 
@@ -24,11 +25,13 @@ class EnlaceForm(forms.ModelForm):
 
 class SesionForm(forms.ModelForm):
     nombre = forms.CharField(max_length=200)
-    fecha = forms.DateTimeField()
+    fecha = forms.DateTimeField(input_formats=settings.DATE_INPUT_FORMATS,
+                                widget=forms.DateTimeInput(attrs={'class': 'datetime-input'}))
     acuerdo = forms.CharField(widget=forms.Textarea)
-    fecha_prox = forms.DateTimeField()
-    # entidad = forms.ModelChoiceField(queryset=Entidad.objects.all())
-    # enlaces = forms.ModelChoiceField(queryset=Enlace.objects.all())
+    fecha_prox = forms.DateTimeField(input_formats=settings.DATE_INPUT_FORMATS,
+                                     widget=forms.DateTimeInput(attrs={'class': 'datetime-input'}))
+    entidad = forms.ModelChoiceField(queryset=Entidad.objects.all())
+    enlaces = forms.ModelMultipleChoiceField(queryset=Enlace.objects.all())
 
     class Meta:
         model = Sesion

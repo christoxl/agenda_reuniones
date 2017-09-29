@@ -1,8 +1,8 @@
 {% extends "web/base.html" %}
 {% load bootstrap %}
 {% block body_block %}
-<h3>Agregar Sesin</h3>
-<div class="col-md-8">
+<h3>Agregar Sesión</h3>
+<div class="col-md-6">
     <form id="sesion_form" method="post" action="{% url 'add_sesion' %}">
         {% csrf_token %}
         {{ form|bootstrap }}
