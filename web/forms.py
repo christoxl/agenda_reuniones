@@ -24,7 +24,7 @@ class EnlaceForm(forms.ModelForm):
 
 class SesionForm(forms.ModelForm):
     nombre = forms.CharField(max_length=200)
-    fecha = forms.DateTimeField(widget=forms.SelectDateWidget)
+    fecha = forms.DateTimeField()
     acuerdo = forms.CharField(widget=forms.Textarea)
     fecha_prox = forms.DateTimeField()
     # entidad = forms.ModelChoiceField(queryset=Entidad.objects.all())
