@@ -6,10 +6,11 @@
     <form id="sesion_form" method="post">
         {% csrf_token %}
         {{ form|bootstrap }}
-        <input class="btn btn-primary" type="submit" name="submit" value="Enviar" />
-        {% if pk %}
-            Test
+        {% if object %}
+            <button class="btn btn-danger" type="button">Eliminar</button>
         {% endif %}
+        <input class="btn btn-primary" type="submit" name="submit" value="Enviar" />
+        
     </form>
 </div>
 {% endblock body_block %}

@@ -1,0 +1,8 @@
+{% extends "web/base.html" %}
+{% load bootstrap %}
+{% block body_block %}
+<form method="post">{% csrf_token %}
+    Estás seguro que deseas eliminar "{{ object }}" ?
+    <input class="btn btn-danger" type="submit" value="Eliminar" />
+</form>
+{% endblock %}

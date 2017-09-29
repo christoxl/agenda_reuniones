@@ -6,6 +6,9 @@
     <form id="enlace_form" method="post">
         {% csrf_token %}
         {{ form|bootstrap }}
+        {% if object %}
+            <button class="btn btn-danger" type="button">Eliminar</button>
+        {% endif %}
         <input class="btn btn-primary" type="submit" name="submit" value="Enviar" />
     </form>
 </div>

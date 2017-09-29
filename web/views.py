@@ -5,7 +5,7 @@ from django.shortcuts import render, redirect
 from web.models import Entidad, Enlace, Sesion
 from web.forms import SesionForm
 from django.views.generic import ListView
-from django.views.generic.edit import CreateView, UpdateView
+from django.views.generic.edit import CreateView, UpdateView, DeleteView
 from django.core.urlresolvers import reverse_lazy
 
 
@@ -28,6 +28,11 @@ class EntidadUpdate(UpdateView):
     model = Entidad
     success_url = reverse_lazy('entidad')
     fields = ['nombre']
+
+
+class EntidadDelete(DeleteView):
+    model = Entidad
+    success_url = reverse_lazy('entidad')
 
 
 class EnlaceList(ListView):

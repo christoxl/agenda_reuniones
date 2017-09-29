@@ -23,6 +23,7 @@ urlpatterns = [
     url(r'^entidad$', views.EntidadList.as_view(), name='entidad'),
     url(r'^entidad/agregar/$', views.EntidadCreate.as_view(), name='add_entidad'),
     url(r'^entidad/editar/(?P<slug>[\w\-]+)/$', views.EntidadUpdate.as_view(), name='update_entidad'),
+    url(r'^entidad/borrar/(?P<slug>[\w\-]+)$', views.EntidadDelete.as_view(), name='delete_entidad'),
 
     url(r'^enlace$', views.EnlaceList.as_view(), name='enlace'),
     url(r'^enlace/agregar/$', views.EnlaceCreate.as_view(), name='add_enlace'),
