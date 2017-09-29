@@ -19,7 +19,7 @@ class EnlaceForm(forms.ModelForm):
 
     class Meta:
         model = Enlace
-        fields = {'cargo', 'nombre', 'apellido_pat', 'apellido_mat'}
+        fields = ['nombre', 'apellido_pat', 'apellido_mat', 'cargo']
 
 
 class SesionForm(forms.ModelForm):
@@ -32,4 +32,4 @@ class SesionForm(forms.ModelForm):
 
     class Meta:
         model = Sesion
-        fields = {'nombre', 'fecha', 'acuerdo', 'fecha_prox'}
+        fields = ['nombre', 'fecha', 'acuerdo', 'fecha_prox']
