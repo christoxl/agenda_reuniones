@@ -1,0 +1,14 @@
+{% extends "web/base.html" %}
+{% block body_block %}
+<div class="row title-list">
+    <h3 class="inline">Entidades</h3>
+    <a href="{% url 'add_entidad' %}" type="button" class="btn btn-primary btn-xs pull-right">Agregar Entidad</a>
+</div>
+<div class="row">
+    <ul class="list-group">
+        {% for entidad in entidades %}
+        <a href="#" type="button" class="list-group-item">{{ entidad }}</a>
+        {% endfor %}
+    </ul>
+</div>
+{% endblock body_block %}

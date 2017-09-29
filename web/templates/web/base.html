@@ -10,6 +10,7 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
     <link rel="stylesheet" href="{% static 'web/css/dashboard.css' %}">
     <link rel="stylesheet" href="{% static 'web/css/bootstrap-datetimepicker.min.css' %}">
+    <link rel="stylesheet" href="{% static 'web/css/custom.css' %}">
 </head>
 <body>
     <nav class="navbar navbar-inverse navbar-fixed-top">
@@ -25,9 +26,9 @@
             </div>
             <div id="navbar" class="navbar-collapse collapse">
                 <ul class="nav navbar-nav navbar-right">
-                    <li><a href="{% url 'add_entidad' %}">Entidades</a></li>
-                    <li><a href="{% url 'add_enlace' %}">Enlaces</a></li>
-                    <li><a href="{% url 'add_sesion' %}">Sesiones</a></li>
+                    <li><a href="{% url 'entidad' %}">Entidades</a></li>
+                    <li><a href="{% url 'enlace' %}">Enlaces</a></li>
+                    <li><a href="{% url 'sesion' %}">Sesiones</a></li>
                 </ul>
             </div>
         </div>
@@ -37,9 +38,9 @@
             <div class="col-sm-3 col-md-2 sidebar">
                 <ul class="nav nav-sidebar">
                     <li>
-                        <a href="{% url 'add_entidad' %}">Entidades</a>
-                        <a href="{% url 'add_enlace' %}">Enlaces</a>
-                        <a href="{% url 'add_sesion' %}">Sesiones</a>
+                        <a href="{% url 'entidad' %}">Entidades</a>
+                        <a href="{% url 'enlace' %}">Enlaces</a>
+                        <a href="{% url 'sesion' %}">Sesiones</a>
                     </li>
                 </ul>
             </div>

@@ -1,0 +1,14 @@
+{% extends "web/base.html" %}
+{% block body_block %}
+<div class="row title-list">
+    <h3 class="inline">Enlaces</h3>
+    <a href="{% url 'add_enlace' %}" type="button" class="btn btn-primary btn-xs pull-right">Agregar Enlace</a>
+</div>
+<div class="row">
+    <ul class="list-group">
+        {% for enlace in enlaces %}
+        <a href="#" type="button" class="list-group-item">{{ enlace }}</a>
+        {% endfor %}
+    </ul>
+</div>
+{% endblock body_block %}

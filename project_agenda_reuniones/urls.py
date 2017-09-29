@@ -19,8 +19,11 @@ from web import views
 
 urlpatterns = [
     url(r'^$', views.index, name='index'),
-    url(r'^agregar-entidad/$', views.add_entidad, name='add_entidad'),
-    url(r'^agregar-enlace/$', views.add_enlace, name='add_enlace'),
-    url(r'^agregar-sesion/$', views.add_sesion, name='add_sesion'),
+    url(r'^entidad$', views.entidad, name='entidad'),
+    url(r'^enlace$', views.enlace, name='enlace'),
+    url(r'^sesion$', views.sesion, name='sesion'),
+    url(r'^entidad/agregar/$', views.add_entidad, name='add_entidad'),
+    url(r'^enlace/agregar/$', views.add_enlace, name='add_enlace'),
+    url(r'^sesion/agregar/$', views.add_sesion, name='add_sesion'),
     url(r'^admin/', admin.site.urls),
 ]
