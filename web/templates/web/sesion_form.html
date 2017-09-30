@@ -1,7 +1,7 @@
 {% extends "web/base.html" %}
 {% load bootstrap %}
 {% block body_block %}
-<h3>Sesión</h3>
+<h3>{% if object %}Editar {% else %}Agregar {% endif %}Sesión</h3>
 <div class="col-md-6">
     <form id="sesion_form" method="post">
         {% csrf_token %}
@@ -9,7 +9,7 @@
         {% if object %}
             <a href="{% url 'delete_sesion' object.pk %}" class="btn btn-danger" type="button">Eliminar</a>
         {% endif %}
-        <input class="btn btn-primary" type="submit" name="submit" value="Enviar" />
+        <input class="btn btn-primary" type="submit" name="submit" value="{% if object %}Editar{% else %}Agregar{% endif %}" />
         
     </form>
 </div>
