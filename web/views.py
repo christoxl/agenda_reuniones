@@ -51,6 +51,11 @@ class EnlaceUpdate(UpdateView):
     fields = ['nombre', 'apellido_pat', 'apellido_mat', 'cargo']
 
 
+class EnlaceDelete(DeleteView):
+    model = Enlace
+    success_url = reverse_lazy('enlace')
+
+
 class SesionList(ListView):
     model = Sesion
 
@@ -60,7 +65,13 @@ class SesionCreate(CreateView):
     model = Sesion
     success_url = reverse_lazy('sesion')
 
+
 class SesionUpdate(UpdateView):
     form_class = SesionForm
+    model = Sesion
+    success_url = reverse_lazy('sesion')
+
+
+class SesionDelete(DeleteView):
     model = Sesion
     success_url = reverse_lazy('sesion')

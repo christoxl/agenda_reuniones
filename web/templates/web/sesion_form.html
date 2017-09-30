@@ -7,7 +7,7 @@
         {% csrf_token %}
         {{ form|bootstrap }}
         {% if object %}
-            <button class="btn btn-danger" type="button">Eliminar</button>
+            <a href="{% url 'delete_sesion' object.pk %}" class="btn btn-danger" type="button">Eliminar</a>
         {% endif %}
         <input class="btn btn-primary" type="submit" name="submit" value="Enviar" />
         
