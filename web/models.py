@@ -46,7 +46,7 @@ class Sesion(models.Model):
     fecha = models.DateTimeField()
     acuerdo = models.TextField(null=True)
     fecha_prox = models.DateTimeField()
-    entidad = models.ForeignKey(Entidad)
+    entidad = models.ForeignKey(Entidad, on_delete=models.PROTECT, related_name='sesions')
     enlaces = models.ManyToManyField(Enlace)
 
     def save(self, *args, **kwargs):

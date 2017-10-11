@@ -7,6 +7,11 @@ $(function () {
 $(document).ready(function() {
     // page is now ready, initialize the calendar...
     $('#calendar').fullCalendar({
+        header: {
+            left: 'title',
+            center: 'month,agendaWeek,agendaDay,listWeek'
+        },
+        navLinks: true,
         eventSources: [
             
                     // your event source
@@ -18,8 +23,7 @@ $(document).ready(function() {
                             },
                             {
                                 title  : 'event2',
-                                start  : '2010-01-05',
-                                end    : '2010-01-07'
+                                start  : '2017-09-05'
                             },
                             {
                                 title  : 'event3',

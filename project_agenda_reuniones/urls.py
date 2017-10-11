@@ -33,7 +33,7 @@ urlpatterns = [
     url(r'^sesion$', views.SesionList.as_view(), name='sesion'),
     url(r'^sesion/agregar/$', views.SesionCreate.as_view(), name='add_sesion'),
     url(r'^sesion/editar/(?P<pk>\d+)/$', views.SesionUpdate.as_view(), name='update_sesion'),
-    url(r'^sesion/birrar/(?P<pk>\d+)/$', views.SesionDelete.as_view(), name='delete_sesion'),
+    url(r'^sesion/borrar/(?P<pk>\d+)/$', views.SesionDelete.as_view(), name='delete_sesion'),
 
     url(r'^admin/', admin.site.urls),
 ]

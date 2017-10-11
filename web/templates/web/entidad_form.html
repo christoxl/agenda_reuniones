@@ -7,7 +7,9 @@
         {% csrf_token %}
         {{ form|bootstrap }}
         {% if object %}
-            <a href="{% url 'delete_entidad' object.slug %}" class="btn btn-danger" type="button" >Eliminar</a>
+            {% if not object.sesions.exists %} 
+                <a href="{% url 'delete_entidad' object.slug %}" class="btn btn-danger" type="button" >Eliminar</a>
+            {% endif %}
         {% endif %}
         <input class="btn btn-primary" type="submit" name="submit" value="{% if object %}Editar{% else %}Agregar{% endif %}" />
     </form>
