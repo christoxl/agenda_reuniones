@@ -4,7 +4,7 @@ from __future__ import unicode_literals
 from django.shortcuts import render, redirect
 from web.models import Entidad, Enlace, Sesion
 from web.forms import SesionForm
-from django.views.generic import ListView
+from django.views.generic import ListView, DetailView
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
 from django.core.urlresolvers import reverse_lazy
 from django.http import JsonResponse
@@ -58,6 +58,10 @@ class EnlaceDelete(DeleteView):
 
 
 class SesionList(ListView):
+    model = Sesion
+
+
+class SesionDetail(DetailView):
     model = Sesion
 
 
