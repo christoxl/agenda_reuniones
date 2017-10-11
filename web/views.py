@@ -79,4 +79,7 @@ class SesionDelete(DeleteView):
 
 
 def json_calendar(request):
-    return JsonResponse({'title': 'bar', 'start': '2017-10-12'})
+    sesions = Sesion.objects.all()
+    json_data = [{"title": sesion.nombre, "start": sesion.fecha_prox}
+                 for sesion in sesions]
+    return JsonResponse(json_data, safe=False)
