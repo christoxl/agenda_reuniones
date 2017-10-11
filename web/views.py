@@ -90,6 +90,8 @@ def json_calendar(request):
         json_data = [{"request": "bad_request"}]
     else:
         sesions = Sesion.objects.filter(fecha_prox__range=(start, end))
-        json_data = [{"title": sesion.nombre, "start": sesion.fecha_prox, "url": "/sesion/1/"} 
+        json_data = [{"title": sesion.nombre,
+                      "start": sesion.fecha_prox,
+                      "url": reverse_lazy('detail_sesion', kwargs={'pk': sesion.id})}
                      for sesion in sesions]
     return JsonResponse(json_data, safe=False)
