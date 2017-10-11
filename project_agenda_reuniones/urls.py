@@ -35,5 +35,7 @@ urlpatterns = [
     url(r'^sesion/editar/(?P<pk>\d+)/$', views.SesionUpdate.as_view(), name='update_sesion'),
     url(r'^sesion/borrar/(?P<pk>\d+)/$', views.SesionDelete.as_view(), name='delete_sesion'),
 
+    url(r'^api$', views.json_calendar, name='api'),
+
     url(r'^admin/', admin.site.urls),
 ]

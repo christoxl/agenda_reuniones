@@ -7,6 +7,7 @@ from web.forms import SesionForm
 from django.views.generic import ListView
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
 from django.core.urlresolvers import reverse_lazy
+from django.http import JsonResponse
 
 
 def index(request):
@@ -75,3 +76,7 @@ class SesionUpdate(UpdateView):
 class SesionDelete(DeleteView):
     model = Sesion
     success_url = reverse_lazy('sesion')
+
+
+def json_calendar(request):
+    return JsonResponse({'title': 'bar', 'start': '2017-10-12'})
