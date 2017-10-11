@@ -24,4 +24,4 @@ class SesionForm(forms.ModelForm):
 
     class Meta:
         model = Sesion
-        fields = ['nombre', 'fecha', 'acuerdo', 'fecha_prox', 'entidad', 'enlaces']
+        fields = ['nombre', 'entidad', 'enlaces', 'fecha', 'acuerdo', 'fecha_prox']

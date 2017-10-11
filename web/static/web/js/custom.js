@@ -12,7 +12,7 @@ $(document).ready(function () {
             right: 'month,agendaWeek,agendaDay,listWeek'
         },
         defaultDate: '2017-10-12',
-        navLinks: true, // can click day/week names to navigate views
+        navLinks: true,
         editable: true,
         eventLimit: true,
         events: '/api/'
