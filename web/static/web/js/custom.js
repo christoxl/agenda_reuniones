@@ -9,7 +9,7 @@ $(document).ready(function () {
         header: {
             left: 'prev,next today',
             center: 'title',
-            right: 'month,agendaWeek,agendaDay,listWeek'
+            right: 'month,agendaWeek,listWeek'
         },
         defaultDate: '2017-10-12',
         navLinks: true,
