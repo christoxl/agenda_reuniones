@@ -1,20 +1,35 @@
 {% extends "web/base.html" %}
 {% block body_block %}
-<h4>{{ object.entidad }} - {{ object.nombre }} </h4>
-<div class="row">
-    <div class="col-md-6">
-        <dl >
-            <dt>Enlaces: </dt> 
-            <dd>
+<h3>{{ object.entidad }} - {{ object.nombre }} </h3>
+
+    <div class="row divider-row">
+        <div class="col-md-3">
+            <h4 class="text-center">Enlaces</h4>
+        </div>
+        <div class="col-md-2">
+                <h4 class="text-center">Fecha</h4>
+        </div>
+        <div class="col-md-2">
+                <h4 class="text-center">Fecha Próxima</h4>
+        </div>
+        <div class="col-md-5">
+                <h4 class="text-center">Acuerdos</h4>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-3 text-center">
             {% for enlace in object.enlaces.all %}
                 {{ enlace }}<br>
             {% endfor %}
-            </dd>
-            <dt>Fecha: </dt> <dd>{{ object.fecha }}</dd>
-            <dt>Acuerdo: </dt> <dd>{{ object.acuerdo }}</dd>
-            <dt>Fecha próxima: </dt> <dd>{{ object.fecha_prox }}</dd>
-        </dl>
+        </div>
+        <div class="col-md-2 text-center">
+            {{ object.fecha }}
+        </div>
+        <div class="col-md-2 text-center">
+            {{ object.fecha_prox }}
+        </div>
+        <div class="col-md-5">
+                {{ object.acuerdo|linebreaks }}
+        </div>
     </div>
-</div>
-
 {% endblock %}

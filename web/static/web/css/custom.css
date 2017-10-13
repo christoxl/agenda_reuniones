@@ -5,3 +5,8 @@
 .title-list {
     margin-bottom: 10px;
 }
+
+.divider-row { 
+    border-bottom:1px solid #aaa; 
+    margin-bottom:10px;
+}
