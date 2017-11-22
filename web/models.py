@@ -57,4 +57,4 @@ class Sesion(models.Model):
         return (str(self.entidad) + ' - ' + self.nombre)
 
     def __unicode__(self):
-        return (str(self.entidad) + ' - ' + self.nombre)
+        return (unicode(self.entidad) + ' - ' + self.nombre)
