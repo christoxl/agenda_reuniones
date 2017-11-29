@@ -85,8 +85,8 @@ DATABASES = {
         'NAME': 'agenda_django',
         'USER': 'agenda_usr_dj',
         'PASSWORD': 'C(2jk:6]aTgF',
-        'HOST': 'localhost',
-        'PORT': '10.125.12.3',
+        'HOST': '10.125.12.3',
+        'PORT': '',
     }
 }
 
