@@ -79,8 +79,14 @@ WSGI_APPLICATION = 'project_agenda_reuniones.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+        # 'ENGINE': 'django.db.backends.sqlite3',
+        # 'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+        'ENGINE': 'django.db.backends.mysql',
+        'NAME': 'agenda_django',
+        'USER': 'agenda_usr_dj',
+        'PASSWORD': 'C(2jk:6]aTgF',
+        'HOST': 'localhost',
+        'PORT': '10.125.12.3',
     }
 }
 
